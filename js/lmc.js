@@ -4,16 +4,19 @@ function new_memory_cell(address){
     var memory_cell = document.createElement("div");
     memory_cell.className = "memory-cell";
 
-    var memory_label = document.createElement("div");
+    var memory_label = document.createElement("label");
     memory_label.className = "memory-label";
     memory_label.id = "mem_label_" + address;
     memory_label.innerHTML = address;
+    memory_label.setAttribute("for", "mem_input_" + address);
 
     var memory_input = document.createElement("input");
     memory_input.className = "memory-input";
     memory_input.id = "mem_input_" + address;
+    memory_input.readOnly = true;
 
     memory_input.setAttribute("type", "number");
+    memory_input.setAttribute("name", "mem_input_" + address);
     memory_input.setAttribute("value", "0");
     memory_input.setAttribute("min", "0");
     memory_input.setAttribute("max", "999");

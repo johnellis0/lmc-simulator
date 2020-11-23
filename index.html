@@ -16,8 +16,47 @@
 <body>
 <noscript>The LMC simulator will not work with JavaScript disabled.</noscript>
 
-<div id="memory-container">
+<div id="lmc">
+    <div id="lmc-title">
+        <h1>Little Man Computer</h1>
+    </div>
 
+    <div id="lmc-content">
+        <div id="program-container">
+            <div id="assembly-container">
+                <label for="program">Assembly</label>
+                <textarea id="program" name="program"></textarea>
+            </div>
+
+            <div id="machine-code-container">
+                <label for="machine-code">Machine Code</label>
+                <textarea id="machine-code" name="machine-code" readonly></textarea>
+            </div>
+        </div>
+
+        <div id="cpu-container">
+            <div id="pc-container">
+                <label for="pc">Program Counter</label>
+                <input type="number" id="pc" name="pc" value="0" size="3" readonly>
+            </div>
+
+            <div id="acc-container">
+                <label for="acc">Accumulator</label>
+                <input type="number" id="acc" name="acc" value="0" size="3" readonly>
+            </div>
+
+            <div id="output-container">
+                <label for="output">Output</label>
+                <textarea id="output" name="output" readonly></textarea>
+            </div>
+        </div>
+
+        <div id="memory-container"></div>
+    </div>
+
+    <div id="lmc-controls">
+
+    </div>
 </div>
 </body>
 

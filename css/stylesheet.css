@@ -1,21 +1,106 @@
+* {
+    font-family: monospace;
+}
+
+#lmc {
+    margin: 10px;
+    padding: 10px;
+    background-color: #d2d2d2;
+    outline: 1px solid;
+}
+
+#lmc-title > h1 {
+    margin: 0 0 1rem 0;
+}
+
+#lmc-content {
+    display: flex;
+}
+
+#lmc-controls {
+
+}
+
+#output-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#program-container {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+#assembly-container, #machine-code-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#assembly-container {
+    flex-grow: 1;
+}
+
+#program, #output, #machine-code {
+    height: 100%;
+    width: 90%;
+    resize: none;
+}
+
+#machine-code {
+    width: 6rem;
+    font-family: monospace;
+    font-size: 1rem;
+    -moz-appearance: textfield;
+}
+
+#cpu-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    margin: 0 1rem;
+}
+
+#output-container {
+    flex-grow: 1;
+}
+
+#acc-container {
+    margin: 1rem 0;
+}
+
+#pc-container, #acc-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#program-container, #cpu-container, #memory-container {
+    padding: 10px;
+    background-color: #dddddd;
+    box-shadow: inset 0 0 5px #000000;
+    outline: 1px solid;
+}
+
 #memory-container {
     display: inline-grid;
     grid-template-columns: 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem;
     grid-template-rows: 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem;
 }
+
 .memory-cell {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 .memory-label {
     font-weight: bold;
     font-family: monospace;
     font-size: 1rem;
 }
-.memory-input {
+.memory-input, #pc, #acc {
     width: 2rem;
-    font-family: monospace;
     font-size: 1rem;
     -moz-appearance: textfield;
 }
