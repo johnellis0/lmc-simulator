@@ -1,0 +1,26 @@
+#memory-container {
+    display: inline-grid;
+    grid-template-columns: 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem;
+    grid-template-rows: 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem;
+}
+.memory-cell {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+.memory-label {
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1rem;
+}
+.memory-input {
+    width: 2rem;
+    font-family: monospace;
+    font-size: 1rem;
+    -moz-appearance: textfield;
+}
+.memory-input::-webkit-outer-spin-button,
+.memory-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
