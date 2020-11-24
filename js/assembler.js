@@ -2,7 +2,7 @@
 
 const commentPrefix = "//";
 export const opcodes = {ADD: "1", SUB: "2", STA: "3", LDA: "5", BRA: "6", BRZ: "7", BRP: "8", INP: "901", OUT: "902", HLT: "000", DAT: ""};
-const requiresAddress = [opcodes.ADD, opcodes.SUB, opcodes.STA, opcodes.LDA, opcodes.BRA, opcodes.BRZ, opcodes.BRP, opcodes.DAT];
+const requiresAddress = [opcodes.ADD, opcodes.SUB, opcodes.STA, opcodes.LDA, opcodes.BRA, opcodes.BRZ, opcodes.BRP];
 
 /**
  * Returns opcode & address from text or null if instruction not present
@@ -25,11 +25,17 @@ function parseInstruction(text){
     if(Object.keys(opcodes).includes(splits[0])) {
         opcode = opcodes[splits[0]];
 
-        if (requiresAddress.includes(opcode)) { // if address required
+        if(requiresAddress.includes(opcode)) { // if address required
             if (splits.length !== 2)
                 throw "Invalid instruction: " + text;
 
-            address = splits[1].padStart(2, "0");
+            address = splits[1];
+        }else if(opcode === opcodes.DAT){
+            if(splits.length === 1){
+                address = "0";
+            }else{
+                address = splits[1];
+            }
         }else{
             if (splits.length !== 1)
                 throw "Invalid instruction: " + text;
