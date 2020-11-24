@@ -85,6 +85,14 @@ LMC.prototype = {
                     break;
             }
         }else{
+            var opcode = instruction.substring(0, 1);
+            var address = instruction.substring(1);
+
+            switch(opcode){
+                case opcodes.ADD:
+                    this.acc += parseInt(getMemoryCell(address));
+                    break;
+            }
 
         }
 
