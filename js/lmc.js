@@ -1,12 +1,12 @@
 "use strict";
 
 function getMemoryCell(address){
-    var cell = document.getElementById("mem_input_" + address);
+    var cell = document.getElementById("mem_input_" + parseInt(address));
     return cell.value;
 }
 
 function setMemoryCell(address, value){
-    var cell = document.getElementById("mem_input_" + address);
+    var cell = document.getElementById("mem_input_" + parseInt(address));
     cell.value = value;
 }
 
