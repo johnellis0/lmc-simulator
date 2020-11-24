@@ -14,7 +14,7 @@ function setMemoryCell(address, value){
 
 function outputValue(value){
     var output = document.getElementById("output");
-    output.value += value;
+    output.value += value + "\n";
 }
 
 export default function LMC(){
