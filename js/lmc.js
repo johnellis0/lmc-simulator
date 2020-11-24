@@ -91,7 +91,7 @@ LMC.prototype = {
 
             switch(opcode){
                 case opcodes.ADD:
-                    this.acc += getMemoryCell(address);
+                    this.acc += parseInt(getMemoryCell(address));
                     break;
                 case opcodes.SUB:
                     var result = this.acc - parseInt(getMemoryCell(address));
