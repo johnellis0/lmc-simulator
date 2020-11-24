@@ -10,12 +10,12 @@ const requiresAddress = [opcodes.ADD, opcodes.SUB, opcodes.STA, opcodes.LDA, opc
  * @returns {{address: null, opcode: *}|null}
  */
 function parseInstruction(text){
-    if(text.indexOf(commentPrefix) !== -1)
+    if(text.indexOf(commentPrefix) !== -1) // Remove comments
         text = text.substring(0, text.indexOf(commentPrefix));
 
     var opcode = null, address = null;
 
-    var splits = text.toUpperCase().split(" ").filter(t => t !== "");
+    var splits = text.toUpperCase().split(" ").filter(t => t !== ""); // Remove empty strings after split
 
     if(splits.length === 0)
         return null;
