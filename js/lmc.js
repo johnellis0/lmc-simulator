@@ -101,6 +101,14 @@ LMC.prototype = {
                     this.negativeFlag = negative;
 
                     break;
+                case opcodes.STA:
+                    setMemoryCell(address, this.acc);
+
+                    break;
+                case opcodes.LDA:
+                    this.acc = parseInt(getMemoryCell(address));
+
+                    break;
                     break;
             }
 
