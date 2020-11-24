@@ -34,7 +34,7 @@ LMC.prototype = {
     },
     set acc(value) {
         document.getElementById("acc").value = value.toString().padStart(3, "0");
-        this._acc = value;
+        this._acc = parseInt(value);
         this.negativeFlag = false;
     },
 
@@ -43,7 +43,7 @@ LMC.prototype = {
     },
     set pc(value){
         document.getElementById("pc").value = value.toString().padStart(2, "0");
-        this._pc = value;
+        this._pc = parseInt(value);
     },
 
     load: function(instructions){
@@ -91,7 +91,7 @@ LMC.prototype = {
 
             switch(opcode){
                 case opcodes.ADD:
-                    this.acc += parseInt(getMemoryCell(address));
+                    this.acc += getMemoryCell(address);
                     break;
                 case opcodes.SUB:
                     var result = this.acc - parseInt(getMemoryCell(address));
@@ -106,21 +106,21 @@ LMC.prototype = {
 
                     break;
                 case opcodes.LDA:
-                    this.acc = parseInt(getMemoryCell(address));
+                    this.acc = getMemoryCell(address);
 
                     break;
                 case opcodes.BRA:
-                    this.pc = parseInt(address);
+                    this.pc = address;
 
                     break;
                 case opcodes.BRZ:
                     if(this.acc === 0 && !this.negativeFlag)
-                        this.pc = parseInt(address);
+                        this.pc = address;
 
                     break;
                 case opcodes.BRP:
                     if(!this.negativeFlag)
-                        this.pc = parseInt(address);
+                        this.pc = address;
 
                     break;
             }
