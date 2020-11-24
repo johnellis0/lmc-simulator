@@ -12,16 +12,6 @@ function setMemoryCell(address, value){
     cell.value = value.padStart(3, "0");
 }
 
-function getPC(){
-    var pc = document.getElementById("pc");
-    return pc.value;
-}
-
-function setPC(value){
-    var pc = document.getElementById("pc");
-    pc.value = value;
-}
-
 export default function LMC(){
     this.pc = 0;
     this.acc = 0;
@@ -30,6 +20,8 @@ export default function LMC(){
 
 LMC.prototype = {
     ...LMC.prototype,
+
+    _pc: 0,
     _acc: 0,
 
     get acc() {
@@ -38,6 +30,14 @@ LMC.prototype = {
     set acc(value) {
         document.getElementById("acc").value = value;
         this._acc = value;
+    },
+
+    get pc(){
+        return this._pc;
+    },
+    set pc(value){
+        document.getElementById("pc").value = value;
+        this._pc = value;
     },
 
     load: function(instructions){
