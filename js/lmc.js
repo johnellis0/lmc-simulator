@@ -1,5 +1,7 @@
 "use strict";
 
+import {opcodes} from "./assembler.js";
+
 function getMemoryCell(address){
     var cell = document.getElementById("mem_input_" + parseInt(address));
     return cell.value;
@@ -43,7 +45,22 @@ LMC.prototype = {
             setMemoryCell(i, instructions[i]);
         }
     },
-    cycle: function() {
+    cycle: function(){
+        var instruction = getMemoryCell(this.pc);
+        this.pc++;
 
+        if(Object.keys(opcodes).includes(instruction)){
+            switch(instruction){
+                case opcodes.HLT:
+                    return false;
+            }
+        }else{
+
+        }
+
+        return true;
+    },
+    run: function(){
+        while(this.cycle()){}
     }
 }
