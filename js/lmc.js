@@ -30,18 +30,18 @@ LMC.prototype = {
     _acc: 0,
 
     get acc() {
-        return this._acc;
+        return parseInt(this._acc);
     },
     set acc(value) {
-        document.getElementById("acc").value = value;
+        document.getElementById("acc").value = value.toString().padStart(3, "0");
         this._acc = value;
     },
 
     get pc(){
-        return this._pc;
+        return parseInt(this._pc);
     },
     set pc(value){
-        document.getElementById("pc").value = value;
+        document.getElementById("pc").value = value.toString().padStart(2, "0");
         this._pc = value;
     },
 
