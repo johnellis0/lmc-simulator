@@ -15,6 +15,7 @@ export function setMachineCodeText(text){
 export function clearProgram(){
     setProgramText("");
     setMachineCodeText("");
+    document.getElementById("output").value = "";
 }
 
 document.getElementById("clear").addEventListener("click", clearProgram)
