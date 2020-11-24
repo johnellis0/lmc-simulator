@@ -1,8 +1,8 @@
 "use strict";
 
 const commentPrefix = "//";
-const opcodes = {ADD: "1", SUB: "2", STA: "3", LDA: "5", BRA: "6", BRZ: "7", BRP: "8", INP: "901", OUT: "902", HLT: "000"};
-const requiresAddress = [opcodes.ADD, opcodes.SUB, opcodes.STA, opcodes.LDA, opcodes.BRA, opcodes.BRZ, opcodes.BRP];
+const opcodes = {ADD: "1", SUB: "2", STA: "3", LDA: "5", BRA: "6", BRZ: "7", BRP: "8", INP: "901", OUT: "902", HLT: "000", DAT: ""};
+const requiresAddress = [opcodes.ADD, opcodes.SUB, opcodes.STA, opcodes.LDA, opcodes.BRA, opcodes.BRZ, opcodes.BRP, opcodes.DAT];
 
 /**
  * Returns opcode & address from text or null if instruction not present
@@ -50,8 +50,11 @@ export default function assemble(program){
     lines.forEach((line) => {
         var instruction = parseInstruction(line);
 
-        if(instruction !== null)
-            instructions.push(instruction.opcode + (instruction.address === null ? "" : instruction.address));
+        if(instruction !== null){
+            var text = instruction.opcode + (instruction.address === null ? "" : instruction.address);
+            text = text.padStart(3, "0");
+            instructions.push(text);
+        }
     });
 
     return instructions;
