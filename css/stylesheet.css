@@ -104,8 +104,8 @@
     font-size: 1rem;
     -moz-appearance: textfield;
 }
-.memory-input::-webkit-outer-spin-button,
-.memory-input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
