@@ -64,18 +64,42 @@ export default function assemble(program){
     var lines = program.split("\n");
 
     var instructions = [];
-    var labels = [];
+    var labelTable = {};
+
     lines = lines.filter((line) => {
         //Remove empty lines & commented out lines
         var splits = line.split(" ").filter(t => t !== "");
         return !( splits.length === 0 || splits[0].startsWith(commentPrefix) );
     });
 
+    for(var i=0; i<lines.length; i++){
+        var label = getLabel(lines[i]);
+        if(label !== null) {
+            if(Object.keys(labelTable).includes(label))
+                throw "Duplicate label: " + label;
+
+            labelTable[label] = i;
+            lines[i] = lines[i].substring(label.length + 1); // Remove leading label
+        }
+    }
+
     lines.forEach((line) => {
         var instruction = parseInstruction(line);
 
         if(instruction !== null){
-            var text = instruction.opcode + (instruction.address === null ? "" : instruction.address);
+            var text = instruction.opcode;
+
+            if(instruction.address !== null){ // if instruction requires address
+                if(isNaN(instruction.address)){ // if address is not a number it must be a label
+                    if(!Object.keys(labelTable).includes(instruction.address.toUpperCase())) // ensure label in table
+                        throw "Undefined label: " + instruction.address.toUpperCase();
+
+                    text += labelTable[instruction.address].toString().padStart(2, "0"); // set address to that of label
+                }else{
+                    text += instruction.address.padStart(2, "0");
+                }
+            }
+
             text = text.padStart(3, "0");
             instructions.push(text);
         }
