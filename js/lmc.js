@@ -12,6 +12,11 @@ function setMemoryCell(address, value){
     cell.value = value.padStart(3, "0");
 }
 
+function outputValue(value){
+    var output = document.getElementById("output");
+    output.value += value;
+}
+
 export default function LMC(){
     this.pc = 0;
     this.acc = 0;
