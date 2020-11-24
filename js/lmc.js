@@ -9,7 +9,7 @@ function getMemoryCell(address){
 
 function setMemoryCell(address, value){
     var cell = document.getElementById("mem_input_" + parseInt(address));
-    cell.value = value.padStart(3, "0");
+    cell.value = value.toString().padStart(3, "0");
 }
 
 function outputValue(value){
@@ -46,6 +46,10 @@ LMC.prototype = {
     },
 
     load: function(instructions){
+        for(var i=0; i<100; i++){
+            setMemoryCell(i, 0);
+        }
+
         for(var i=0; i<instructions.length; i++){
             setMemoryCell(i, instructions[i]);
         }
