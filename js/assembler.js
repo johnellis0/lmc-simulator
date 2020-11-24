@@ -15,7 +15,7 @@ function parseInstruction(text){
 
     var opcode = null, address = null;
 
-    var splits = text.split(" ").filter(t => t !== "");
+    var splits = text.toUpperCase().split(" ").filter(t => t !== "");
 
     if(splits.length === 0)
         return null;
