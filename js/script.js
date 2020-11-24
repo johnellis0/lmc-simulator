@@ -7,6 +7,10 @@ import assemble from "./assembler.js";
 
 setup();
 
+var lmc = new LMC();
+
 document.getElementById("assemble").addEventListener("click", () => {
-    setMachineCodeText(assemble(getProgramText()));
+    var instructions = assemble(getProgramText());
+    setMachineCodeText(instructions.join("\n"));
+    lmc.load(instructions);
 });

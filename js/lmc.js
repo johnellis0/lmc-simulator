@@ -38,6 +38,11 @@ export default function LMC(){
 
 LMC.prototype = {
     ...LMC.prototype,
+    load: function(instructions){
+        for(var i=0; i<instructions.length; i++){
+            setMemoryCell(i, instructions[i]);
+        }
+    },
     cycle: function() {
 
     }
