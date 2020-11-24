@@ -14,3 +14,11 @@ document.getElementById("assemble").addEventListener("click", () => {
     setMachineCodeText(instructions.join("\n"));
     lmc.load(instructions);
 });
+
+document.getElementById("cycle").addEventListener("click", () => {
+    lmc.cycle();
+});
+
+document.getElementById("run").addEventListener("click", () => {
+    lmc.run();
+});
