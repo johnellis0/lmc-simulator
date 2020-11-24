@@ -52,6 +52,11 @@ export default function assemble(program){
 
     var instructions = [];
     var labels = [];
+    lines = lines.filter((line) => {
+        //Remove empty lines & commented out lines
+        var splits = line.split(" ").filter(t => t !== "");
+        return !( splits.length === 0 || splits[0].startsWith(commentPrefix) );
+    });
 
     lines.forEach((line) => {
         var instruction = parseInstruction(line);
