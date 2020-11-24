@@ -22,16 +22,6 @@ function setPC(value){
     pc.value = value;
 }
 
-function getACC(){
-    var acc = document.getElementById("acc");
-    return acc.value;
-}
-
-function setACC(value){
-    var acc = document.getElementById("acc");
-    acc.value = value;
-}
-
 export default function LMC(){
     this.pc = 0;
     this.acc = 0;
@@ -40,6 +30,16 @@ export default function LMC(){
 
 LMC.prototype = {
     ...LMC.prototype,
+    _acc: 0,
+
+    get acc() {
+        return this._acc;
+    },
+    set acc(value) {
+        document.getElementById("acc").value = value;
+        this._acc = value;
+    },
+
     load: function(instructions){
         for(var i=0; i<instructions.length; i++){
             setMemoryCell(i, instructions[i]);
