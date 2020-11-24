@@ -33,9 +33,20 @@ LMC.prototype = {
         return parseInt(this._acc);
     },
     set acc(value) {
-        document.getElementById("acc").value = value.toString().padStart(3, "0");
-        this._acc = parseInt(value);
-        this.negativeFlag = false;
+        value = parseInt(value);
+
+        if(value < 0){ // Underflow
+            this._acc = value + 999;
+            this.negativeFlag = true;
+        }else if(value > 999){ // Overflow
+            this._acc = value - 999;
+            this.negativeFlag = true;
+        }else{
+            this._acc = value;
+            this.negativeFlag = false;
+        }
+
+        document.getElementById("acc").value = this._acc.toString().padStart(3, "0");
     },
 
     get pc(){
@@ -94,11 +105,7 @@ LMC.prototype = {
                     this.acc += parseInt(getMemoryCell(address));
                     break;
                 case opcodes.SUB:
-                    var result = this.acc - parseInt(getMemoryCell(address));
-                    var negative = result < 0;
-
-                    this.acc = negative ? result + 999 : result;
-                    this.negativeFlag = negative;
+                    this.acc -= parseInt(getMemoryCell(address));
 
                     break;
                 case opcodes.STA:
