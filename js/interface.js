@@ -12,10 +12,14 @@ export function setMachineCodeText(text){
     document.getElementById("machine-code").value = text;
 }
 
+export function clearOutput(){
+    document.getElementById("output").value = "";
+}
+
 export function clearProgram(){
     setProgramText("");
     setMachineCodeText("");
-    document.getElementById("output").value = "";
+    clearOutput();
 }
 
 document.getElementById("clear").addEventListener("click", clearProgram)

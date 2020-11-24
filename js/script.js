@@ -2,7 +2,7 @@
 
 import LMC from "./lmc.js";
 import setup from "./setup.js";
-import {getProgramText, setMachineCodeText} from "./interface.js";
+import {getProgramText, setMachineCodeText, clearOutput} from "./interface.js";
 import assemble from "./assembler.js";
 
 setup();
@@ -20,5 +20,6 @@ document.getElementById("cycle").addEventListener("click", () => {
 });
 
 document.getElementById("run").addEventListener("click", () => {
+    clearOutput();
     lmc.run();
 });
