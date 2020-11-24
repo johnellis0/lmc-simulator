@@ -47,6 +47,19 @@ function parseInstruction(text){
     return {opcode, address}
 }
 
+function getLabel(text){
+    var splits = text.toUpperCase().split(" ").filter(t => t !== "");
+
+    if(splits.length === 0)
+        return null;
+
+    if(!Object.keys(opcodes).includes(splits[0])){
+        return splits[0].toUpperCase();
+    }
+
+    return null;
+}
+
 export default function assemble(program){
     var lines = program.split("\n");
 
