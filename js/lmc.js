@@ -118,6 +118,8 @@ LMC.prototype = {
                         this.pc = parseInt(address);
 
                     break;
+                case opcodes.BRP:
+                    if(!this.negativeFlag)
                     break;
             }
 

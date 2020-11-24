@@ -5,6 +5,7 @@
 #lmc {
     margin: 10px;
     padding: 10px;
+    max-width: 1000px;
     background-color: #d2d2d2;
     outline: 1px solid;
 }
