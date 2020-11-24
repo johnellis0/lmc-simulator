@@ -37,3 +37,25 @@ function create_memory_cells(){
 }
 
 create_memory_cells();
+
+function assemble(){
+    var assembly = document.getElementById("program").value;
+    var machineCodeTextarea = document.getElementById("machine-code");
+
+    machineCodeTextarea.value = assembly;
+}
+
+function clear(){
+    document.getElementById("program").value = "";
+    document.getElementById("machine-code").value = "";
+}
+
+document.getElementById("assemble").addEventListener("click", assemble)
+document.getElementById("clear").addEventListener("click", clear)
+
+
+
+function getInstruction(line){
+    const instructions = ["ADD","SUB","STA","LDA","BRA","BRZ","BRP","INP","OUT","HLT","DAT"];
+
+}
