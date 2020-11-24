@@ -17,7 +17,7 @@ function new_memory_cell(address){
 
     memory_input.setAttribute("type", "number");
     memory_input.setAttribute("name", "mem_input_" + address);
-    memory_input.setAttribute("value", "0");
+    memory_input.setAttribute("value", "000");
     memory_input.setAttribute("min", "0");
     memory_input.setAttribute("max", "999");
     memory_input.setAttribute("maxlength", "3");

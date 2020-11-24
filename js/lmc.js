@@ -7,7 +7,7 @@ function getMemoryCell(address){
 
 function setMemoryCell(address, value){
     var cell = document.getElementById("mem_input_" + parseInt(address));
-    cell.value = value;
+    cell.value = value.padStart(3, "0");
 }
 
 function getPC(){
