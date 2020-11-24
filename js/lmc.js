@@ -35,6 +35,7 @@ LMC.prototype = {
     set acc(value) {
         document.getElementById("acc").value = value.toString().padStart(3, "0");
         this._acc = value;
+        this.negativeFlag = false;
     },
 
     get pc(){
@@ -91,6 +92,15 @@ LMC.prototype = {
             switch(opcode){
                 case opcodes.ADD:
                     this.acc += parseInt(getMemoryCell(address));
+                    break;
+                case opcodes.SUB:
+                    var result = this.acc - parseInt(getMemoryCell(address));
+                    var negative = result < 0;
+
+                    this.acc = negative ? result + 999 : result;
+                    this.negativeFlag = negative;
+
+                    break;
                     break;
             }
 
