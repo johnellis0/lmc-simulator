@@ -49,6 +49,10 @@ LMC.prototype = {
         for(var i=0; i<instructions.length; i++){
             setMemoryCell(i, instructions[i]);
         }
+
+        this.pc = 0;
+        this.acc = 0;
+        this.negativeFlag = false;
     },
 
     cycle: function(){
