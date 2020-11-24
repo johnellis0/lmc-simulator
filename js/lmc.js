@@ -50,14 +50,31 @@ LMC.prototype = {
             setMemoryCell(i, instructions[i]);
         }
     },
+
     cycle: function(){
         var instruction = getMemoryCell(this.pc);
         this.pc++;
 
-        if(Object.keys(opcodes).includes(instruction)){
+        if(Object.values(opcodes).includes(instruction)){
             switch(instruction){
                 case opcodes.HLT:
                     return false;
+
+                case opcodes.INP:
+                    var input = prompt("Input number (0-999)");
+
+                    while(isNaN(input) || parseInt(input) < 0 || parseInt(input) > 999){
+                        input = prompt("Input number (0-999)");
+                    }
+
+                    this.acc = input;
+
+                    break;
+
+                case opcodes.OUT:
+                    outputValue(this.acc);
+
+                    break;
             }
         }else{
 
@@ -65,6 +82,7 @@ LMC.prototype = {
 
         return true;
     },
+
     run: function(){
         while(this.cycle()){}
     }
