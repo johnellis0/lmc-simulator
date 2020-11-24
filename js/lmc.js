@@ -109,6 +109,15 @@ LMC.prototype = {
                     this.acc = parseInt(getMemoryCell(address));
 
                     break;
+                case opcodes.BRA:
+                    this.pc = parseInt(address);
+
+                    break;
+                case opcodes.BRZ:
+                    if(this.acc === 0 && !this.negativeFlag)
+                        this.pc = parseInt(address);
+
+                    break;
                     break;
             }
 
