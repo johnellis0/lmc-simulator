@@ -10,9 +10,30 @@ function setMemoryCell(address, value){
     cell.value = value;
 }
 
+function getPC(){
+    var pc = document.getElementById("pc");
+    return pc.value;
+}
+
+function setPC(value){
+    var pc = document.getElementById("pc");
+    pc.value = value;
+}
+
+function getACC(){
+    var acc = document.getElementById("acc");
+    return acc.value;
+}
+
+function setACC(value){
+    var acc = document.getElementById("acc");
+    acc.value = value;
+}
+
 export default function LMC(){
     this.pc = 0;
     this.acc = 0;
+    this.negativeFlag = false;
 }
 
 LMC.prototype = {
