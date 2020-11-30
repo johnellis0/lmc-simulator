@@ -19,6 +19,7 @@
 }
 
 #lmc-controls {
+    display: inline-block;
     margin: 10px 0 0 0;
 }
 
