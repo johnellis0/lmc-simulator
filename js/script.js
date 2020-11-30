@@ -25,7 +25,8 @@ document.getElementById("step").addEventListener("click", () => {
 });
 
 document.getElementById("run_stop").addEventListener("click", () => {
-    //clearOutput();
+    if(document.getElementById("run_stop").innerHTML === "Run")
+        clearOutput();
     lmc.toggle();
     toggleRunStopText();
 });
