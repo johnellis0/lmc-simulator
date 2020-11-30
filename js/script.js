@@ -4,6 +4,7 @@ import LMC from "./lmc.js";
 import setup from "./setup.js";
 import {getProgramText, setMachineCodeText, clearOutput} from "./interface.js";
 import assemble from "./assembler.js";
+import "./examples.js";
 
 setup();
 
