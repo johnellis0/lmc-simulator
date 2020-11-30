@@ -29,6 +29,9 @@ LMC.prototype = {
     _pc: 0,
     _acc: 0,
 
+    clock: null,
+    clockSpeed: 150,
+
     get acc() {
         return parseInt(this._acc);
     },
@@ -78,6 +81,9 @@ LMC.prototype = {
         if(Object.values(opcodes).includes(instruction)){
             switch(instruction){
                 case opcodes.HLT:
+                    if(this.clock !== null)
+                        clearInterval(this.clock);
+                    this.clock = null;
                     return false;
 
                 case opcodes.INP:
@@ -138,6 +144,7 @@ LMC.prototype = {
     },
 
     run: function(){
-        while(this.cycle()){}
+        var inst = this;
+        this.clock = setInterval(() => this.cycle(), this.clockSpeed);
     }
 }
