@@ -22,4 +22,4 @@ export function clearProgram(){
     clearOutput();
 }
 
-document.getElementById("clear").addEventListener("click", clearProgram)
+document.getElementById("reset").addEventListener("click", clearProgram)
