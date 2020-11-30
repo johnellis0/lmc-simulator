@@ -15,7 +15,7 @@ document.getElementById("assemble").addEventListener("click", () => {
     lmc.load(instructions);
 });
 
-document.getElementById("cycle").addEventListener("click", () => {
+document.getElementById("step").addEventListener("click", () => {
     lmc.cycle();
 });
 
