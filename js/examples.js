@@ -20,7 +20,26 @@ const examples = {
         "HLT\n" +
         "NUM1 DAT\n" +
         "NUM2 DAT\n",
-    
+    MULT: "INP\n" +
+        "STA NUM\n" +
+        "INP\n" +
+        "STA AMT\n" +
+        "LOOP LDA RSLT\n" +
+        "ADD NUM\n" +
+        "STA RSLT\n" +
+        "LDA AMT\n" +
+        "SUB ONE\n" +
+        "BRZ END\n" +
+        "STA AMT\n" +
+        "BRA LOOP\n" +
+        "END LDA RSLT\n" +
+        "OUT\n" +
+        "HLT\n" +
+        "NUM DAT\n" +
+        "AMT DAT\n" +
+        "ONE DAT 1\n" +
+        "RSLT DAT\n"
+
 }
 
 function loadExample(e){
