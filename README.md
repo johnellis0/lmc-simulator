@@ -41,30 +41,29 @@ This functionality can be used to create more complex programs without having to
 ### Comments
 Anything prefixed by a `//` is treated as a comment by the assembler.
 
-```
-INP // Comments can be after an instruction
-STA NUM
-// Or on their own line
-```
+
+    INP // Comments can be after an instruction
+    STA NUM
+    // Or on their own line
+
 
 ## Examples
 Below are a few example programs. These are also available to load into the LMC by using the `Load example` dropdown.
 #### Add 2 numbers
-```
-INP // Get 1st number
-STA NUM // Store at label "NUM"
-INP // Get 2nd number
-ADD NUM // Add 1st number
-OUT // Output result
-HLT // End program
 
-NUM DAT // Data label "NUM"
-```
+    INP // Get 1st number
+    STA NUM // Store at label "NUM"
+    INP // Get 2nd number
+    ADD NUM // Add 1st number
+    OUT // Output result
+    HLT // End program
+
+    NUM DAT // Data label "NUM"
+
 
 ## More info
 
 [Little Man Computer on Wikipedia](https://en.wikipedia.org/wiki/Little_man_computer)
-
 
 ## Authors
  - John Ellis - [GitHub](https://github.com/johnellis0) / [Portfolio](https://johnellis.dev)
