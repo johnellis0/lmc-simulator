@@ -9,7 +9,18 @@ const examples = {
         "ADD NUM\n" +
         "OUT\n" +
         "HLT\n" +
-        "NUM DAT\n"
+        "NUM DAT\n",
+    SUB2: "INP\n" +
+        "STA NUM1\n" +
+        "INP\n" +
+        "STA NUM2\n" +
+        "LDA NUM1\n" +
+        "SUB NUM2\n" +
+        "OUT\n" +
+        "HLT\n" +
+        "NUM1 DAT\n" +
+        "NUM2 DAT\n",
+    
 }
 
 function loadExample(e){
