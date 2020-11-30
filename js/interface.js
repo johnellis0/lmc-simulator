@@ -24,4 +24,13 @@ export function clearProgram(){
     }
 }
 
+export function toggleRunStopText(){
+    var button = document.getElementById("run_stop");
+    if(button.innerHTML === "Run"){
+        button.innerHTML = "Stop";
+    }else{
+        button.innerHTML = "Run";
+    }
+}
+
 document.getElementById("reset").addEventListener("click", clearProgram)

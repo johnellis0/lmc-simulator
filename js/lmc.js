@@ -141,8 +141,12 @@ LMC.prototype = {
         return true;
     },
 
-    run: function(){
-        var inst = this;
-        this.clock = setInterval(() => this.cycle(), this.clockSpeed);
+    toggle: function(){
+        if(this.clock !== null){
+            clearInterval(this.clock);
+            this.clock = null;
+        }else{
+            this.clock = setInterval(() => this.cycle(), this.clockSpeed);
+        }
     }
 }
