@@ -3,13 +3,24 @@
 import {setProgramText} from "./interface.js";
 
 const examples = {
-    ADD2: "INP\n" +
-        "STA NUM\n" +
-        "INP\n" +
-        "ADD NUM\n" +
-        "OUT\n" +
-        "HLT\n" +
-        "NUM DAT\n",
+    ADD2: "// Add 2 numbers example\n" +
+        "// Adds first input to second\n" +
+        "\n" +
+        "INP // Get 1st number\n" +
+        "STA NUM // Store at label \"NUM\"\n" +
+        "INP // Get 2nd number\n" +
+        "ADD NUM // Add 1st number\n" +
+        "OUT // Output result\n" +
+        "HLT // End program\n" +
+        "\n" +
+        "NUM DAT // Data label \"NUM\"\n" +
+        "\n" +
+        "// Press \"Assemble & Load\" to \n" +
+        "// reset LMC and load program\n" +
+        "// into memory\n" +
+        "\n" +
+        "// Then press \"Run\" to run\n" +
+        "// program\n",
     SUB2: "INP\n" +
         "STA NUM1\n" +
         "INP\n" +
