@@ -1,6 +1,7 @@
 "use strict";
 
 import {opcodes} from "./assembler.js";
+import {toggleRunStopText} from "./interface.js";
 
 function getMemoryCell(address){
     var cell = document.getElementById("mem_input_" + parseInt(address));
@@ -81,8 +82,10 @@ LMC.prototype = {
         if(Object.values(opcodes).includes(instruction)){
             switch(instruction){
                 case opcodes.HLT:
-                    if(this.clock !== null)
+                    if(this.clock !== null){
                         clearInterval(this.clock);
+                        toggleRunStopText();
+                    }
                     this.clock = null;
                     return false;
 
