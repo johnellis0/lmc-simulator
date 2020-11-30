@@ -51,3 +51,4 @@ function loadExample(e){
 }
 
 document.getElementById("examples").addEventListener("change", loadExample)
+setProgramText(examples["ADD2"]);
