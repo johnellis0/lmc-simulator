@@ -17,9 +17,11 @@ export function clearOutput(){
 }
 
 export function clearProgram(){
-    setProgramText("");
-    setMachineCodeText("");
-    clearOutput();
+    if(confirm("Press OK to reset LMC & clear program.")){
+        setProgramText("");
+        setMachineCodeText("");
+        clearOutput();
+    }
 }
 
 document.getElementById("reset").addEventListener("click", clearProgram)
