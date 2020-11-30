@@ -10,9 +10,13 @@ setup();
 var lmc = new LMC();
 
 document.getElementById("assemble").addEventListener("click", () => {
-    var instructions = assemble(getProgramText());
-    setMachineCodeText(instructions.join("\n"));
-    lmc.load(instructions);
+    try {
+        var instructions = assemble(getProgramText());
+        setMachineCodeText(instructions.join("\n"));
+        lmc.load(instructions);
+    } catch (e) {
+        alert("Assembler error:\n" + e);
+    }
 });
 
 document.getElementById("step").addEventListener("click", () => {
