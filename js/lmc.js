@@ -87,11 +87,9 @@ LMC.prototype = {
                     return false;
 
                 case opcodes.INP:
-                    var input = prompt("Input number (0-999)");
-
-                    while(isNaN(input) || parseInt(input) < 0 || parseInt(input) > 999){
-                        input = prompt("Input number (0-999)");
-                    }
+                    do {
+                        var input = prompt("Input number (0-999)");
+                    } while(isNaN(input) || input === "" || input === null || parseInt(input) < 0 || parseInt(input) > 999);
 
                     this.acc = input;
 
