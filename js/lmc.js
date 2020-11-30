@@ -30,7 +30,7 @@ LMC.prototype = {
     _acc: 0,
 
     clock: null,
-    clockSpeed: 150,
+    clockSpeed: 10,
 
     get acc() {
         return parseInt(this._acc);
