@@ -12,6 +12,7 @@ var lmc = new LMC();
 
 document.getElementById("assemble").addEventListener("click", () => {
     try {
+        clearOutput();
         var instructions = assemble(getProgramText());
         setMachineCodeText(instructions.join("\n"));
         lmc.load(instructions);
